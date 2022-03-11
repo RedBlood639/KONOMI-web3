@@ -11,7 +11,11 @@ const Transfer: React.FC = () => {
   //     dispatch(SetExample(data));
   //  -- State:
   //      const data = useSelector((state:AppState) => state.example.data)
-  return <div>{"MONOMI_WEB3_FRONTEND"}</div>;
+  return (
+    <>
+      <div>{"MONOMI_WEB3_FRONTEND"}</div>
+    </>
+  );
 };
 
 export default Transfer;
