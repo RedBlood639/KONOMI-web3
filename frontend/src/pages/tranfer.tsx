@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Text,
@@ -16,7 +16,26 @@ import { validate } from "../utils/validate";
 // @type
 import { formT } from "../types/form";
 
+// @web3
+import Web3 from "web3";
+
 const TransferPage: React.FC = () => {
+  useEffect(() => {
+    if (window.ethereum) {
+      handleEthereum();
+    } else {
+    }
+  }, []);
+  // @event : handle metamask
+  const handleEthereum = () => {
+    const { ethereum } = window;
+    if (ethereum && ethereum.isMetaMask) {
+    } else {
+      toast.error("Please install Metamask", { theme: "dark" });
+    }
+  };
+
+  // @event : transfer
   const onTransfer = (data: formT) => {
     console.log(data);
     toast.success("Transaction successful", {
