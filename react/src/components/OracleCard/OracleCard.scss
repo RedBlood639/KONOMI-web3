@@ -1,0 +1,338 @@
+// Oracle Card Component
+.oracle-card-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 290px;
+  min-height: 138px;
+  color: #fff;
+  display: flex;
+}
+
+.oracle-card-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s;
+  z-index: 0;
+}
+
+.card-header {
+  height: 25%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-container {
+  position: relative;
+  height: inherit;
+  width: 100%;
+  z-index: 1;
+  padding-right: 5%;
+}
+
+.header-title {
+  margin-left: 13%;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 23px;
+  text-transform: uppercase;
+}
+
+.header-title.skeleton {
+  margin-left: 10%;
+  width: 25%;
+  height: 70%;
+  display: block;
+}
+
+.header-status {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+}
+
+.header-status.skeleton {
+  width: 40%;
+  height: 70%;
+  display: block;
+}
+
+.header-status svg {
+  margin-right: 7px;
+}
+
+.text-active {
+  color: #76fcb3;
+}
+
+.text-terminated {
+  color: #ff007a;
+}
+
+.text-suspended {
+  color: #ffe500;
+}
+
+.card-body {
+  height: 75%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 8%;
+}
+
+.card-body p {
+  margin: 0;
+  display: inline-block;
+}
+
+.text-price {
+  display: inline-block;
+  font-size: 21px;
+  line-height: 25px;
+  font-weight: 500;
+}
+
+.text-price.skeleton {
+  width: 100%;
+  height: 25px;
+  display: block;
+}
+
+.text-expiry {
+  font-size: 13px;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 24px;
+}
+
+.text-expiry.skeleton {
+  width: 100%;
+  height: 21px;
+  display: block;
+}
+
+.card-body-info {
+  width: calc(100% - 80px);
+  height: inherit;
+  justify-content: space-around;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.coin.skeleton {
+  width: 70px;
+  height: 70px;
+  border-radius: 9999px;
+}
+
+.skeleton {
+  contain: content;
+  border-radius: 5px;
+  background-color: rgba(128, 128, 128, 0.3);
+  position: relative;
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    background-image: linear-gradient(
+      90deg,
+      rgba(#fff, 0) 0,
+      rgba(#fff, 0.2) 20%,
+      rgba(#fff, 0.5) 60%,
+      rgba(#fff, 0)
+    );
+    animation: shimmer 2s infinite;
+    content: "";
+  }
+  @keyframes shimmer {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+.card-detail-wrapper {
+  z-index: 3;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  transition: all 0.3s;
+  transform: scaleY(0);
+  opacity: 0;
+  transform-origin: top center;
+
+  padding-bottom: 50px;
+  &.show {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+.card-detail-container {
+  background-color: #221334;
+  border: 1px solid #00d7d7;
+  border-radius: 5px;
+  padding: 40px;
+  position: relative;
+  .subtract-svg {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+}
+
+.card-detail-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  .coin-info {
+    display: flex;
+    align-items: center;
+    margin-right: 65px;
+    .coin-img {
+      & > svg {
+        width: 38px;
+        height: 38px;
+        margin-right: 12px;
+      }
+    }
+    .coin-symbol {
+      text-transform: uppercase;
+      color: white;
+      font-weight: 500;
+      font-size: 40px;
+      line-height: 46px;
+    }
+  }
+  p {
+    margin: 0;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 55px;
+    font-family: Manrope !important;
+    color: #00d7d7;
+    word-break: break-all;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.card-status {
+  display: flex;
+  align-items: center;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 21px;
+  svg {
+    margin-right: 7px;
+  }
+  span.status {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+  p {
+    margin: 0;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+  }
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.detailed-info {
+  margin: 15px 0;
+  padding: 15px 28px;
+  display: grid;
+  grid-gap: 20px;
+  grid-template-columns: repeat(4, 1fr);
+  @media screen and (max-width: 1024px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  & > .piece {
+    p,
+    h3 {
+      margin: 0;
+    }
+    p {
+      font-weight: 400;
+      font-size: 13px;
+      line-height: 24px;
+      color: #fff;
+    }
+    h3 {
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 24px;
+      color: #00d7d7;
+    }
+  }
+  &.bordered {
+    border: 2px solid #00d7d710;
+    border-radius: 10px;
+  }
+}
+
+.detailed-data-source {
+  padding: 15px 28px;
+  margin-top: 20px;
+  & > h2.title {
+    margin: 0;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    color: #ffffff;
+  }
+  & .data-source-wrapper {
+    margin-top: 21px;
+    flex-wrap: wrap;
+    display: flex;
+    & > .piece:not(:last-child) {
+      margin-right: 54px;
+    }
+    & > .piece {
+      margin-bottom: 20px;
+      & > div {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        font-weight: 400;
+        font-size: 18px;
+        line-height: 30px;
+        color: #fff;
+        img {
+          margin-right: 10px;
+        }
+      }
+      & > p {
+        text-align: center;
+        font-weight: 400;
+        font-size: 13px;
+        line-height: 15px;
+        margin: 0;
+        color: #00d7d7;
+      }
+    }
+  }
+}

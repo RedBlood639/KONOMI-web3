@@ -1,0 +1,55 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Manrope", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #221334;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+* {
+  font-family: Ubuntu;
+}
+
+.section-wrapper {
+  position: relative;
+  min-height: 100vh;
+}
+
+.page-content {
+  padding: 50px 0;
+  height: 100%;
+}
+
+.page-subtitle {
+  color: #00d7d7;
+  opacity: 0.5;
+  text-align: center;
+  text-transform: capitalize;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  font-family: Ubuntu;
+  position: absolute;
+  transform: rotate(90deg);
+  top: 80px;
+  left: -10%;
+}
+
+@media screen and (max-width: 1024px) {
+  .page-subtitle {
+    left: -12%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-subtitle {
+    display: none;
+  }
+}

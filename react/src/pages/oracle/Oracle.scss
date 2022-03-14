@@ -1,0 +1,26 @@
+.oracle-card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 5%;
+  grid-row-gap: 50px;
+  position: relative;
+  margin-top: 27px;
+}
+
+@media screen and (max-width: 1440px) {
+  .oracle-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .oracle-card-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .oracle-card-grid {
+    grid-template-columns: 1fr;
+  }
+}

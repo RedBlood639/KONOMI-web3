@@ -1,0 +1,20 @@
+// Container
+.container {
+  max-width: 1362px;
+  width: 90%;
+  margin: auto;
+}
+
+// PageTitle
+.page-title {
+  color: #00d7d7;
+  font-family: Ubuntu;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  text-transform: capitalize;
+  svg {
+    height: 28px;
+    margin-right: 16px;
+  }
+}
