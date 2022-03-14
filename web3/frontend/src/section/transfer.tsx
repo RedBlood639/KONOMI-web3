@@ -18,7 +18,7 @@ import { setTransfer } from "../store/trasfer/actions";
 import _ from "lodash";
 import { Formik } from "formik";
 import { validate } from "../utils/validate";
-import { makeTransaction } from "../utils/transaction";
+import { getGasEstimate } from "../utils/gasEstimate";
 // @type
 import { EtherT, formT } from "../types/common";
 import { TranferMask } from "../types/common";
@@ -30,14 +30,22 @@ const Transfer: React.FC<TranferMask> = ({ isInstall }) => {
   const context: EtherT = useEthContext();
 
   const onTransfer = async (data: formT) => {
-    const pack = await makeTransaction(data, context);
-    if (!_.isEmpty(pack)) {
-      setComment(true);
-    } else {
-      setComment(false);
-    }
+    const gas = await getGasEstimate(data, context);
+    await context.web3.eth
+      .sendTransaction({
+        from: context.account,
+        to: data.address,
+        value: context.web3.utils.toWei(data.amount, "ether"),
+        gas,
+      })
+      .on("receipt", (receipt: any) => {
+        setComment(true);
+        dispatch(setTransfer(receipt));
+      })
+      .on("error", () => {
+        setComment(false);
+      });
     setShow(true);
-    dispatch(setTransfer(pack));
   };
 
   return (
