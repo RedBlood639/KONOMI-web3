@@ -1,3 +1,3 @@
-import { ExampleActions } from "./example/types";
+import { TransferActions } from "./trasfer/types";
 
-export type AppActions = ExampleActions;
+export type AppActions = TransferActions;

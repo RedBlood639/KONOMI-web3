@@ -24,6 +24,6 @@ app.all('*', (req: Request, res: Response, next: NextFunction) => {
 // @registration of handler
 app.use(errorHandler);
 
-app.listen(3000, () => {
-  console.log('Application started on port 3000!');
+app.listen(3001, () => {
+  console.log('Application started on port 3001!');
 });

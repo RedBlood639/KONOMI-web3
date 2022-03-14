@@ -1,17 +1,17 @@
-import { ExampleActions, SET_EXAMPLE } from "./types";
+import { TransferActions, SET_TRANSFER } from "./types";
 
-interface ExampleState {
+interface TransferState {
   data: any;
 }
 
 const ExampleReducer = (
-  state: ExampleState = {
+  state: TransferState = {
     data: null,
   },
-  action: ExampleActions
-): ExampleState => {
+  action: TransferActions
+): TransferState => {
   switch (action.type) {
-    case SET_EXAMPLE:
+    case SET_TRANSFER:
       return {
         ...state,
         data: action.payload,

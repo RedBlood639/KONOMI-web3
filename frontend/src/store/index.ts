@@ -2,10 +2,10 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunkMiddleware from "redux-thunk";
 
-import ExampleReducer from "./example/reducers";
+import TransferReducer from "./trasfer/reducers";
 
 const rootReducer = combineReducers({
-  example: ExampleReducer,
+  trasfer: TransferReducer,
 });
 
 export type AppState = ReturnType<typeof rootReducer>;
