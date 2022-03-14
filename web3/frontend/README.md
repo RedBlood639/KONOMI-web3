@@ -1,5 +1,4 @@
 # KONOMI-WEB3-FRONTEND
-  
   -React
   -NativeBase
   -Typescript
